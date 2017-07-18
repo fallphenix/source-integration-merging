@@ -10,13 +10,16 @@ if ( false === include_once( config_get( 'plugin_path' ) . 'SourceSVN/SourceSVN.
 
 class SourceViewVCPlugin extends SourceSVNPlugin {
 
+
 	const PLUGIN_VERSION = '2.0.0';
 	const FRAMEWORK_VERSION_REQUIRED = '2.0.0';
 	const SOURCESVN_VERSION_REQUIRED = '2.0.0';
 
+
 	public function register() {
 		$this->name = lang_get( 'plugin_SourceViewVC_title' );
 		$this->description = lang_get( 'plugin_SourceViewVC_description' );
+
 
 		$this->version = self::PLUGIN_VERSION;
 		$this->requires = array(
@@ -28,6 +31,7 @@ class SourceViewVCPlugin extends SourceSVNPlugin {
 		$this->author = 'John Bailey';
 		$this->contact = 'dev@brightsilence.com';
 		$this->url = 'https://github.com/mantisbt-plugins/source-integration';
+
 	}
 
 	public $type = 'viewvc';
@@ -141,6 +145,7 @@ class SourceViewVCPlugin extends SourceSVNPlugin {
 		$t_root_as_url  = $this->get_viewvc_root_as_url( $p_repo );
 
 ?>
+
 <tr>
 	<td class="category"><?php echo lang_get( 'plugin_SourceViewVC_viewvc_url' ) ?></td>
 	<td>
@@ -170,6 +175,7 @@ class SourceViewVCPlugin extends SourceSVNPlugin {
 			<span class="lbl"></span>
 		</label>
 	</td>
+
 </tr>
 <?php
 

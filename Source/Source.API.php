@@ -425,10 +425,17 @@ function Source_Process_Changesets( $p_changesets, $p_repo=null ) {
 				$t_update = true;
 			}
 
-			if( $t_bug->handler_id != $t_handler_id ) {
-				$t_bug->handler_id = $t_handler_id;
-				$t_update = true;
-			}
+
+//			if( $t_bug->handler_id != $t_handler_id ) {
+//				$t_bug->handler_id = $t_handler_id;
+//				$t_update = true;
+//			}
+
+		if ( $t_handler && !is_null( $t_user_id ) && access_has_project_level( config_get( 'handle_bug_threshold' ), $t_bug->project_id, $t_user_id )) {
+			$t_bug->handler_id = $t_handler_id;
+                        $t_update = true;
+                      }
+
 		}
 
 		$t_private = plugin_config_get( 'bugfix_message_view_status' ) == VS_PRIVATE;
